@@ -1,12 +1,12 @@
 public class Converter {
-    double setDistance(int steps) {
-        double distance;
-        distance = steps * 0.00075;
+    double convertDistance(int steps) {
+        double oneStepDistance = 0.00075;
+        double distance = steps * oneStepDistance;
         return distance;
     }
-    double setKkal(int steps) {
-        double kkal;
-        kkal = steps * 0.05;
+    double convertKkal(int steps) {
+        double oneStepKkal = 0.05;
+        double kkal = steps * oneStepKkal;
         return kkal;
     }
 }

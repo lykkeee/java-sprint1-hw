@@ -7,26 +7,47 @@ public class Main {
             console();
             int command = scanner.nextInt();
             if (command == 1) {
-                System.out.println("Введите порядковый номер месяца(0 - Январь, 1 - Февраль и т.д.):");
-                int month = scanner.nextInt();
-                System.out.println("Введите день месяца(От 0 до 29):");
-                int day = scanner.nextInt();
                 while (true) {
-                    System.out.println("Введите количество шагов:");
-                    int stepsQuantity = scanner.nextInt();
-                    if (stepsQuantity >= 0) {
-                        stepTracker.saveStepsQuantity(month, day, stepsQuantity);
-                        System.out.println("Изменения сохранены");
+                    System.out.println("Введите порядковый номер месяца(0 - Январь, 1 - Февраль и т.д.):");
+                    int month = scanner.nextInt();
+                    if (month >= 0 & month <= 11) {
+                        while (true) {
+                            System.out.println("Введите день месяца(От 1 до 30):");
+                            int day = scanner.nextInt();
+                            if (day >= 1 & day <= 30) {
+                                while (true) {
+                                    System.out.println("Введите количество шагов:");
+                                    int stepsQuantity = scanner.nextInt();
+                                    if (stepsQuantity >= 0) {
+                                        stepTracker.saveStepsQuantity(month, day, stepsQuantity);
+                                        System.out.println("Изменения сохранены");
+                                        break;
+                                    } else {
+                                        System.out.println("Необходимо положительнео значение");
+                                    }
+                                }
+                                break;
+                            } else {
+                                System.out.println("Необходимо значение от 1 до 30");
+                            }
+                        }
                         break;
                     } else {
-                        System.out.println("Необходимо положительнео значение");
+                        System.out.println("Необходимо значение от 0 до 11");
                     }
                 }
             } else if (command == 2) {
-                System.out.println("Введите порядковый номер месяца(0 - Январь, 1 - Февраль и т.д.):");
-                int month = scanner.nextInt();
-                System.out.println("Статистика за месяц:");
-                stepTracker.statistics(month);
+                while (true) {
+                    System.out.println("Введите порядковый номер месяца(0 - Январь, 1 - Февраль и т.д.):");
+                    int month = scanner.nextInt();
+                    if (month >= 0 & month <= 11) {
+                        System.out.println("Статистика за месяц:");
+                        stepTracker.statistics(month);
+                        break;
+                    } else {
+                        System.out.println("Необходимо значение от 0 до 11");
+                    }
+                }
             } else if (command == 3) {
                 while (true) {
                     System.out.println("Введите новую цель:");
